@@ -11,16 +11,18 @@ package edu.co.sergio.mundo.vo;
  */
 public class Usuario {
     
-    private String user;
+    private String userito;
     private String nombre;
 
-    public String getUser() {
-        return user;
+    public String getUserito() {
+        return userito;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUserito(String userito) {
+        this.userito = userito;
     }
+
+    
 
     public String getNombre() {
         return nombre;

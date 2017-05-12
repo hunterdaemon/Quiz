@@ -163,8 +163,8 @@ public class UsuarioDAO implements IBaseDatos<Usuario> {
 	    	}
 	      
 	        Usuario registro= new Usuario();
-	        user = rs.getString("user");
-	        registro.setUser(user);
+	        user = rs.getString("userito");
+	        registro.setUserito(user);
 	        
 	        nombre = rs.getString("nombre");
 	        registro.setNombre(nombre) ;
@@ -195,11 +195,11 @@ public class UsuarioDAO implements IBaseDatos<Usuario> {
             } catch (URISyntaxException ex) {
                 Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
-	    String query = " insert into Usuario (user,nombre)"  + " values (?,?)";
+	    String query = " insert into Usuario (userito,nombre)"  + " values (?,?)";
         PreparedStatement preparedStmt=null;
 	    try {
 			preparedStmt = connection.prepareStatement(query);
-			preparedStmt.setString (1, t.getUser());
+			preparedStmt.setString (1, t.getUserito());
                         preparedStmt.setString (2, t.getNombre());
 			result= preparedStmt.execute();
 	    } catch (SQLException e) {
@@ -221,11 +221,11 @@ public class UsuarioDAO implements IBaseDatos<Usuario> {
             } catch (URISyntaxException ex) {
                 Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
-		String query = "update Usuario set nombre = ? where user = ?";
+		String query = "update Usuario set nombre = ? where userito = ?";
 		PreparedStatement preparedStmt=null;
 		try {
 		    preparedStmt = connection.prepareStatement(query);
-		    preparedStmt.setString (1, t.getUser());
+		    preparedStmt.setString (1, t.getUserito());
                     preparedStmt.setString   (2, t.getNombre());
 		    if (preparedStmt.executeUpdate() > 0){
 		    	result=true;
@@ -251,11 +251,11 @@ public class UsuarioDAO implements IBaseDatos<Usuario> {
             } catch (URISyntaxException ex) {
                 Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
-	   String query = "delete from Usuario where user = ?";
+	   String query = "delete from Usuario where userito = ?";
 	   PreparedStatement preparedStmt=null;
 	   try {
 		     preparedStmt = connection.prepareStatement(query);
-		     preparedStmt.setString(1, t.getUser());
+		     preparedStmt.setString(1, t.getUserito());
 		    result= preparedStmt.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
