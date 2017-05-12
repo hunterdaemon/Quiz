@@ -158,6 +158,7 @@ public class Obras_de_arteDAO implements IBaseDatos<Obra_de_arte>{
 	    String nombre = null;
             String descripcion = null;
             String estilo = null;
+            String curriculum = null;
 	    int valor = 0;
 	
 	    while (rs.next()){
@@ -177,6 +178,9 @@ public class Obras_de_arteDAO implements IBaseDatos<Obra_de_arte>{
                 
                 valor = rs.getInt("valor");
 	        registro.setValor(valor) ;
+                
+                curriculum = rs.getString("curriculum");
+	        registro.setCurriculum(curriculum) ;
 	        
 	        obras.add(registro);
 	    }
@@ -204,7 +208,7 @@ public class Obras_de_arteDAO implements IBaseDatos<Obra_de_arte>{
             } catch (URISyntaxException ex) {
                 Logger.getLogger(Obras_de_arteDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
-	    String query = " insert into Obra_de_arte (nombre,descripcion,estilo,valor)"  + " values (?,?,?,?)";
+	    String query = " insert into Obra_de_arte (nombre,descripcion,estilo,valor,curriculum)"  + " values (?,?,?,?,?)";
         PreparedStatement preparedStmt=null;
 	    try {
 			preparedStmt = connection.prepareStatement(query);
@@ -212,6 +216,7 @@ public class Obras_de_arteDAO implements IBaseDatos<Obra_de_arte>{
                         preparedStmt.setString (2, t.getDescripcion());
                         preparedStmt.setString (3, t.getEstilo());
                         preparedStmt.setInt (4, t.getValor());
+                        preparedStmt.setString (5, t.getCurriculum());
                         
 			result= preparedStmt.execute();
 	    } catch (SQLException e) {
@@ -241,6 +246,7 @@ public class Obras_de_arteDAO implements IBaseDatos<Obra_de_arte>{
                         preparedStmt.setString (2, t.getDescripcion());
                         preparedStmt.setString (3, t.getEstilo());
                         preparedStmt.setInt (4, t.getValor());
+                         preparedStmt.setString (5, t.getCurriculum());
                     
 		    if (preparedStmt.executeUpdate() > 0){
 		    	result=true;
