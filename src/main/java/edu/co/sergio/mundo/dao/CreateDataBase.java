@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  */
 public class CreateDataBase {
      public static void run(){
-          String sql = "CREATE TABLE Depto(id_depto integer,nom_depto varchar(40), PRIMARY KEY(id_depto))";
+          String sql = "CREATE TABLE Usuario(user varchar(40),nombre varchar(40), PRIMARY KEY(user))";
           Connection connection = null;
             try {
                 connection = Conexion.getConnection();
@@ -26,10 +26,36 @@ public class CreateDataBase {
                 stmt.executeUpdate(sql);
                 
             } catch (URISyntaxException ex) {
-                Logger.getLogger(DepartamentoDAO.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+             Logger.getLogger(CreateDataBase.class.getName()).log(Level.SEVERE, null, ex);
+         }
+            
+          String sql2 = "CREATE TABLE Obra_de_arte(nombre varchar(40),descripcion varchar(40),estilo varchar(40),valor Integer, PRIMARY KEY(nombre))";
+          Connection connection2 = null;
+            try {
+                connection2 = Conexion.getConnection();
+                Statement stmt = connection2.createStatement();
+                stmt.executeUpdate(sql);
+                
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(Obras_de_arteDAO.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
              Logger.getLogger(CreateDataBase.class.getName()).log(Level.SEVERE, null, ex);
          }
           
+          String sql3 = "CREATE TABLE Artista(curriculum varchar(40),distinciones varchar(40), PRIMARY KEY(nombre))";
+          Connection connection3 = null;
+            try {
+                connection3 = Conexion.getConnection();
+                Statement stmt = connection3.createStatement();
+                stmt.executeUpdate(sql);
+                
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(Obras_de_arteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+             Logger.getLogger(CreateDataBase.class.getName()).log(Level.SEVERE, null, ex);
+         }
+            
      }
 }
