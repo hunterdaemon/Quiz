@@ -19,18 +19,21 @@ body {
 <body>
     <div align="center" style="margin-top: 50px;">
         <form action="CrunchifyServlet">
-           Id Depto:  <input type="text" name="id" size="20px"> <br>
-           Nombre Depto:  <input type="text" name="nombre" size="20px"> <br><br>
+           Nombre:  <input type="text" name="nombre" size="20px"> <br>
+           Descripcion:  <input type="text" name="descripcion" size="20px"> <br>
+           Estilo:  <input type="text" name="estilo" size="20px"> <br>
+           Valor:  <input type="text" name="valor" size="20px"> <br>
+           <br>
         <input type="submit" value="submit">
         </form>
      </div>
  
     <%
-       if( request.getAttribute("departamentos")!=null){
-          List<Departamento> departamentos  = (List<Departamento>)request.getAttribute("departamentos");
-           for (Departamento departamento : departamentos) {
+       if( request.getAttribute("obras")!=null){
+          List<Obra_de_arte> obras  = (List<Obra_de_arte>)request.getAttribute("obras");
+           for (Obra_de_arte obra : obras) {
          %>      
-         <h1> <%=departamento.getNom_departamento()%> </h1><br/> 
+         <h1> <%=obra.getNombre()%> </h1><br/> 
          <%      
           }
        }

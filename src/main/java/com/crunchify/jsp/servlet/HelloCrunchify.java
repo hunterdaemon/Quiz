@@ -2,6 +2,8 @@ package com.crunchify.jsp.servlet;
  
 import edu.co.sergio.mundo.dao.DepartamentoDAO;
 import edu.co.sergio.mundo.vo.Departamento;
+import edu.co.sergio.mundo.dao.Obras_de_arteDAO;
+import edu.co.sergio.mundo.vo.Obra_de_arte;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,20 +19,25 @@ import javax.servlet.RequestDispatcher;
 public class HelloCrunchify extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // reading the user input
-        String id = request.getParameter("id");
-        String nombre = request.getParameter("nombre");
+        
+    String nombre= request.getParameter("nombre");
+    String descripcion= request.getParameter("descripcion");
+    String estilo= request.getParameter("estilo");
+    String valor= request.getParameter("valor");
         
         //Se debe incluir validaciones - Lo recuerda: Gestion de Excepciones.
-        DepartamentoDAO dao = new DepartamentoDAO();
+        Obras_de_arteDAO dao = new Obras_de_arteDAO();
         
-        Departamento departamento = new Departamento();
-        departamento.setId_departamento(Integer.parseInt(id));
-        departamento.setNom_departamento(nombre);
-        dao.insert(departamento);
+        Obra_de_arte obra = new Obra_de_arte();
+        obra.setNombre(nombre);
+        obra.setDescripcion(descripcion);
+        obra.setEstilo(estilo);
+        obra.setValor(Integer.parseInt(valor));
+        dao.insert(obra);
         
         //Listando la informacion  
-        List<Departamento> departamentos =  dao.findAll();
-        request.setAttribute("departamentos", departamentos);
+        List<Obra_de_arte> obras =  dao.findAll();
+        request.setAttribute("obras", obras);
        
        
         //Redireccionando la informacion
