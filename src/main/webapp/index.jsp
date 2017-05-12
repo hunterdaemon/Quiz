@@ -34,6 +34,9 @@ body {
            for (Obra_de_arte obra : obras) {
          %>      
          <h1> <%=obra.getNombre()%> </h1><br/> 
+         <h1> <%=obra.getDescripcion()%> </h1><br/> 
+         <h1> <%=obra.getEstilo()%> </h1><br/> 
+         <h1> <%=obra.getValor()%> </h1><br/> 
          <%      
           }
        }
