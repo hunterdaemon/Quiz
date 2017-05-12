@@ -23,8 +23,6 @@ body {
            Descripcion:  <input type="text" name="descripcion" size="20px"> <br>
            Estilo:  <input type="text" name="estilo" size="20px"> <br>
            Valor:  <input type="text" name="valor" size="20px"> <br>
-           Curriculum:  <input type="text" name="curriculum" size="20px"> <br>
-           <br>
         <input type="submit" value="submit">
         </form>
      </div>
@@ -38,7 +36,6 @@ body {
          <h1> <%=obra.getDescripcion()%> </h1><br/> 
          <h1> <%=obra.getEstilo()%> </h1><br/> 
          <h1> <%=obra.getValor()%> </h1><br/>
-         <h1> <%=obra.getCurriculum()%> </h1><br/>
          <%      
           }
        }

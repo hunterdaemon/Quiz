@@ -15,8 +15,7 @@ public class Obra_de_arte {
     private String descripcion;
     private String estilo;
     private int valor;
-    private String curriculum;
-
+    
     public String getNombre() {
         return nombre;
     }
@@ -49,13 +48,6 @@ public class Obra_de_arte {
         this.valor = valor;
     }
 
-    public String getCurriculum() {
-        return curriculum;
-    }
-
-    public void setCurriculum(String curriculum) {
-        this.curriculum = curriculum;
-    }
     
     
     

@@ -24,7 +24,6 @@ public class HelloCrunchify extends HttpServlet {
     String descripcion= request.getParameter("descripcion");
     String estilo= request.getParameter("estilo");
     String valor= request.getParameter("valor");
-    String curriculum= request.getParameter("curriculum");
         
         //Se debe incluir validaciones - Lo recuerda: Gestion de Excepciones.
         Obras_de_arteDAO dao = new Obras_de_arteDAO();
@@ -34,7 +33,6 @@ public class HelloCrunchify extends HttpServlet {
         obra.setDescripcion(descripcion);
         obra.setEstilo(estilo);
         obra.setValor(Integer.parseInt(valor));
-         obra.setCurriculum(curriculum);
         dao.insert(obra);
         
         //Listando la informacion  
